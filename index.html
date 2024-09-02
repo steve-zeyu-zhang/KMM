@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Motion Mamba</title>
+  <link rel="icon" type="image/x-icon" href="static/images/run.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">KMM: Key Frame Mask Mamba for Extended Motion Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://steve-zeyu-zhang.github.io/" target="_blank">Zeyu Zhang</a><sup>1</sup><sup>2</sup><sup>*</sup><sup>†</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/hang-gao-725986307/?originalSubdomain=au" target="_blank">Hang Gao</a><sup>3</sup><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/akideliu/" target="_blank">Akide Liu</a><sup>3</sup>,</span>
+                    <span class="author-block">
+                      <a href="https://chenqi008.github.io/" target="_blank">Qi Chen</a><sup>4</sup>,</span>
+                      <span class="author-block">
+                        <a href="https://github.com/Chenfeng1271" target="_blank">Feng Chen</a><sup>4</sup>,</span>
+                        <span class="author-block">
+                          <a href="https://www.linkedin.com/in/yiran-wang-101739246/" target="_blank">Yiran Wang</a><sup>5</sup>,</span>
+                          <span class="author-block">
+                            <a href="https://www.linkedin.com/in/danning-li-448039229/" target="_blank">Danning Li</a><sup>6</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://ha0tang.github.io/" target="_blank">Hao Tang</a><sup>1</sup><sup>✉</sup>
+                  </span>
+                  </div>
+                  <p style="height: 10px;">&nbsp;</p> 
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><font size="4"><sup>1</sup> <a href="https://english.pku.edu.cn/" target="_blank">Peking University</a></font></span>
+                    <span class="author-block"><font size="4"><sup>2</sup> <a href="https://www.anu.edu.au/" target="_blank">The Australian National University</a></font></span><br>
+                    <span class="author-block"><font size="4"><sup>3</sup> <a href="https://www.monash.edu/" target="_blank">Monash University</a></font></span>
+                    <span class="author-block"><font size="4"><sup>4</sup> <a href="https://www.adelaide.edu.au/" target="_blank">The University of Adelaide</a></font></span><br>
+                    <span class="author-block"><font size="4"><sup>5</sup> <a href="https://www.sydney.edu.au/" target="_blank">The University of Sydney</a></font></span>
+                    <span class="author-block"><font size="4"><sup>6</sup> <a href="https://www.mcgill.ca/" target="_blank">McGill University</a></font></span><br>
+                    <p style="height: 10px;">&nbsp;</p> 
+                    <!-- <span class="author-block"><font size="5"><a href="" target="_blank"><b></b></a></font></span><br> -->
+                    <span class="eql-cntrb"><small><sup>*</sup>Equal Contribution.</small></span>
+                    <span class="eql-cntrb"><small><sup>✉</sup>Corresponding author.</small></span><br>
+                    <span class="eql-cntrb"><small><sup>†</sup>Work done while being a visiting student researcher at Peking University.</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Paper link -->
+                      <!-- <span class="link-block">
+                        <a href="https://conference.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                    <!-- Supplementary link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+              <!-- ArXiv Link -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/steve-zeyu-zhang/KMM" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- Hugging Face Link -->
+                  <!-- <span class="link-block">
+                    <a href="https://huggingface.co/papers/2403.07487" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hfbw.svg" style="width: 70%;">
+                    </span>
+                    <span>Hugging Face</span>
+                  </a>
+                </span> -->
+
+                <!-- Citation Link -->
+                <span class="link-block">
+                  <a href="static/scholar.html" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span>BibTeX</span>
+                </a>
+              </span>
+
+                      
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="news">
+  <h2><font size="4"> <b>News:</b> </font></h2>
+  <ul>
+    <li><b>(07/22/2024)</b> &#127881; Our paper was invited for a talk at <a href="https://www.mihoyo.com/"><b>miHoYo</b></a>. You can find our slides <a href="https://steve-zeyu-zhang.github.io/MotionMamba/static/pdfs/Motion_Mamba_Slides_miHoYo.pdf"><b>here</b></a>!</li>
+  </ul>
+  <ul>
+    <li><b>(07/05/2024)</b> &#127881; Our paper has been highlighted twice by <a href="https://wx.zsxq.com/dweb2/index/topic_detail/5122458815888184"><b>CVer</b></a>!</li>
+  </ul>
+  <ul>
+    <li><b>(07/02/2024)</b> &#127881; Our paper has been accepted to <a href="https://eccv2024.ecva.net/"><b style="color: OrangeRed;">ECCV 2024</b></a>!</li>
+  </ul>
+  <ul>
+    <li><b>(03/15/2024)</b> &#127881; Our paper has been highlighted by <a href="https://twitter.com/Marktechpost/status/1768770427680424176"><b>MarkTechPost</b></a>!</li>
+  </ul>
+  <ul>
+    <li><b>(03/13/2024)</b> &#127881; Our paper has been featured in <a href="https://twitter.com/_akhaliq/status/1767750847239262532"><b>Daily Papers</b></a>!</li>
+  </ul>
+  <ul>
+    <li><b>(03/13/2024)</b> &#127881; Our paper has been highlighted by <a href="https://wx.zsxq.com/dweb2/index/topic_detail/1522541851241522"><b>CVer</b></a>!</li>
+  </ul>
+</div>
+
+<p style="height: 50px;">&nbsp;</p> -->
+
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Human motion generation is a cut-edge area of research in generative computer vision, with promising applications in video creation, game development, and robotic manipulation. The recent Mamba architecture shows promising results in efficiently modeling long and complex sequences, yet two significant challenges remain: Firstly, directly applying Mamba to extended motion generation is ineffective, as the limited capacity of the implicit memory leads to memory decay. Secondly, Mamba struggles with multimodal fusion compared to Transformers, and lack alignment with textual queries, often confusing directions (left or right) or omitting parts of longer text queries. To address these challenges, our paper presents three key contributions: Firstly, we introduce <b>KMM</b>, a novel architecture featuring <b>K</b>ey frame <b>M</b>asking <b>M</b>odeling, designed to enhance Mamba's focus on key actions in motion segments. This approach addresses the memory decay problem and represents a pioneering method in customizing strategic frame-level masking in SSMs. Additionally, we designed a contrastive learning paradigm for addressing the multimodal fusion problem in Mamba and improving the motion-text alignment. Finally, we conducted extensive experiments on the go-to dataset, BABEL, achieving state-of-the-art performance with a reduction of more than <b>57%</b> in FID and <b>70%</b> parameters compared to previous state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Visualization</h2>
+
+
+            <!-- Video Row Section -->
+          <div class="video-row">
+            <!-- Video 1 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo01.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person does a spinning dance, then takes a jump sideways to their right. (279)</div>
+            </div>
+
+            <!-- Video 2 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo02.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person raises their left hand above their head and moves downward, as if throwing an object toward the ground. The person walks forward, arms by their side. Someone raises their right leg and extends it then lowers it. Someone greeting while standing and raising hand. (415)</div>
+            </div>
+
+            <!-- Video 3 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo03.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person sidesteps back and forth then moves backward. The person flaps their arms, bending forward. The person is jumping up and down slightly on the spot. A person swam in free style. (525)</div>
+            </div>
+        </div>
+
+
+          <!-- Video Row Section -->
+          <div class="video-row">
+            <!-- Video 1 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo04.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person vaults over an obstacle. A man crouches, stands back up, scratches his head, and crouches again. (380)</div>
+            </div>
+
+            <!-- Video 2 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo05.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A man walks slowly forwards, stepping widely to the left and right. Aarms flap up and down, then the body knees down with both hands on the ground. (307)</div>
+            </div>
+
+            <!-- Video 3 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo06.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person grabbed something and throw it away. A person who is standing with his hands by his sides takes one small step backwards and resumes his original stance. The person is walking in a clockwise circle. This person walks slowly frontwards. (478)</div>
+            </div>
+        </div>
+
+
+          <!-- Video Row Section -->
+          <div class="video-row">
+            <!-- Video 1 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo07.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person is practicing tennis moves. A person walks while touching something with his right hand. (271)</div>
+            </div>
+
+            <!-- Video 2 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo08.mp4" type="video/mp4">
+                </video>
+                <div class="caption">The person was laying down and then they got up backwards. A person jogging in place. (260)</div>
+            </div>
+
+            <!-- Video 3 Container -->
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="static/videos/demo09.mp4" type="video/mp4">
+                </video>
+                <div class="caption">A person pushes with his left leg and foot first in the floor and then pushes with his right leg and foot. A figure walks forward then turns on their heel to walk back where they came from. (325)</div>
+            </div>
+        </div>
+
+
+        <!-- Video Row Section -->
+        <div class="video-row">
+          <!-- Video 1 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo10.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person leans over, grabbing object with right hand. walk over and commences rubbing motion with right hand or arm. A person takes a small hop forward. (274)</div>
+          </div>
+
+          <!-- Video 2 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo11.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person stretching their left arm. A person walks using a handrail with his left hand. (184)</div>
+          </div>
+
+          <!-- Video 3 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo12.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person dances with someone. Crawling forward on his knees. (357)</div>
+          </div>
+      </div>
+
+
+        <!-- Video Row Section -->
+        <div class="video-row">
+          <!-- Video 1 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo13.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person picks up something on his left and sets it down on his right. A person walks turning to the left. A person waves their left hand repeatedly above their head. A person walks to the left holding object on head. (396)</div>
+          </div>
+
+          <!-- Video 2 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo14.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person is practicing tennis techniques. Someone jumps twice and looks down at the ground. (242)</div>
+          </div>
+
+          <!-- Video 3 Container -->
+          <div class="video-container">
+              <video controls autoplay muted loop>
+                  <source src="static/videos/demo15.mp4" type="video/mp4">
+              </video>
+              <div class="caption">A person waves with both arms above head. A person lowers to ground and walks on all fours. (293)</div>
+          </div>
+      </div>      
+
+
+    </div>
+  </div>
+</section>  
+
+
+<!-- <section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Comparsion</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+
+
+
+            <div class="video-row">
+
+              <div class="video-container">
+                  <video controls autoplay muted loop>
+                      <source src="static/videos/demo01.mp4" type="video/mp4">
+                  </video>
+                  <div class="caption">A person does a spinning dance, then takes a jump sideways to their right. (279)</div>
+              </div>
+  
+
+              <div class="video-container">
+                  <video controls autoplay muted loop>
+                      <source src="static/videos/demo02.mp4" type="video/mp4">
+                  </video>
+                  <div class="caption">A person raises their left hand above their head and moves downward, as if throwing an object toward the ground. The person walks forward, arms by their side. Someone raises their right leg and extends it then lowers it. Someone greeting while standing and raising hand. (415)</div>
+              </div>
+  
+
+              <div class="video-container">
+                  <video controls autoplay muted loop>
+                      <source src="static/videos/demo03.mp4" type="video/mp4">
+                  </video>
+                  <div class="caption">A person sidesteps back and forth then moves backward. The person flaps their arms, bending forward. The person is jumping up and down slightly on the spot. A person swam in free style. (525)</div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>   -->
+
+
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Visualization</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/somersault.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character performs a <b>backflip</b> when doing <b>exercise</b>.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/walk.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character first <b>walks</b>, then <b>jumps</b>, and later <b>runs</b> in a <b>straight line</b>.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/circle.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character walks in <b>two</b> consecutive <b>clockwise</b> circles.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <source src="static/videos/badminton.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character executes a <b>smash</b> during a <b>badminton</b> match.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <source src="static/videos/street-dance.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character performs a <b>street dance</b>.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <source src="static/videos/stand-up.mp4"
+            type="video/mp4">
+          </video>
+          <div class="video-description">
+            <p style="height: 10px;">&nbsp;</p><br>
+            <p>The character <b>sits</b> on the ground, then <b>stands up</b>, <b>picks up</b> a newspaper from the ground, and starts to <b>read</b>.</p><br>
+            <p style="height: 5px;">&nbsp;</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="height: 30px;">&nbsp;</p>
+
+  <div class="image-container">
+    <center>
+
+
+    <img src="static/images/compare.svg" style="width: 50%;">
+    <div class="image-description">
+      <p style="height: 10px;">&nbsp;</p><br>
+      <p>We compared the proposed <b>Motion Mamba</b> with well-established state-of-the-art methods such as <a href="https://mingyuan-zhang.github.io/projects/MotionDiffuse.html">MotionDiffuse</a>, <a href="https://guytevet.github.io/mdm-page/">MDM</a>, and <a href="https://chenxin.tech/mld/">MLD</a>. We presented three distinct motion prompts and visualized them in the form of motion sequence. The results demonstrated our superior performance compared to existing methods.</p><br>
+    </div>
+
+    <p style="height: 50px;">&nbsp;</p>
+  
+      <img src="static/images/more_demo.svg" style="width: 50%;">
+    <div class="image-description">
+      <p style="height: 10px;">&nbsp;</p><br>
+      <p>We have included extra examples to showcase the proposed <b>Motion Mamba</b> model. These examples feature randomly selected prompts sourced from <a href="https://github.com/EricGuo5513/HumanML3D">HumanML3D</a>, providing additional visualizations of the model's capabilities.</p><br>
+    </div>
+
+    
+    </center>
+  </div>
+
+
+  <p style="height: 30px;">&nbsp;</p>
+  
+</section> -->
+<!-- End video carousel -->
+
+
+
+<section class="section hero is-light">
+  <div class="my-hero-body">
+    <div class="container">
+  <h2 class="title is-3">Methodology</h2>
+</div>
+
+<p style="height: 50px;">&nbsp;</p>
+
+  <div class="image-container">
+    <center>
+    <img src="static/images/architecture.svg" style="width: 50%;">
+    <div class="image-description">
+      <p style="height: 10px;">&nbsp;</p><br>
+      <p>This figure illustrates the architecture of the proposed <b>Motion Mamba</b> model. Each of encoder and decoder blocks consists of a <b>Hierarchical Temporal Mamba block (HTM)</b> and a <b>Bidirectional Spatial Mamba (BSM)</b> block, which possess hierarchical scan and bidirectional scan within SSM layers respectively. This symmetric distribution of scans ensure a balanced and coherence framework across the encoder-decoder architecture.</p><br>
+    </div>
+    </center>
+  </div>
+
+</div>
+</section>
+
+<section class="section hero is-small">
+  <div class="my-hero-body">
+    <div class="container">
+  <h2 class="title is-3">Performance</h2>
+</div>
+
+<p style="height: 50px;">&nbsp;</p>
+
+  <div class="image-container">
+    <center>
+    <img src="static/images/main.svg" style="width: 60%;">
+    <div class="image-description">
+      <p style="height: 10px;">&nbsp;</p><br>
+      <p>The figure illustrates that previous extended motion generation methods often struggle with directional instructions, leading to incorrect motions. In contrast, our proposed <b>KMM</b>, with enhanced text-motion alignment, effectively improves the model's understanding of text queries, resulting in more accurate motion generation.</p><br>
+    </div>
+    </center>
+  </div>
+
+</div>
+</section>
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{zhang2024motion,
+  title={Motion Mamba: Efficient and Long Sequence Motion Generation with Hierarchical and Bidirectional Selective SSM},
+  author={Zhang, Zeyu and Liu, Akide and Reid, Ian and Hartley, Richard and Zhuang, Bohan and Tang, Hao},
+  journal={arXiv preprint arXiv:2403.07487},
+  year={2024}
+}</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+<!-- 
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
